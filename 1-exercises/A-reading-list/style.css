@@ -26,6 +26,12 @@ body {
   max-height: 40px;
   width: auto;
 }
+.true{
+  background-color: green;
+}
+.false{
+  background-color: red;
+}
 
 .navbar-light .navbar-nav .nav-link {
   color: #292b2c;
