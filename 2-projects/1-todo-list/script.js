@@ -1,14 +1,43 @@
-function populateTodoList(todos) {
-  let list = document.getElementById("todo-list");
-  // Write your code to create todo list elements with completed and delete buttons here, all todos should display inside the "todo-list" element.
-}
 
-// These are the same todos that currently display in the HTML
-// You will want to remove the ones in the current HTML after you have created them using JavaScript
 let todos = [
   { task: "Wash the dishes", completed: false },
   { task: "Do the shopping", completed: false },
 ];
+
+function populateTodoList(todos) {
+  let list = document.getElementById("todo-list");
+  while (list.hasChildNodes()) {
+    list.removeChild(list.lastChild);
+  }
+  // console.log(list);
+  todos.forEach( (theToDos) => {
+  console.log("the to do list", theToDos);
+  let el = elementsOfList(theToDos);
+    list.appendChild(el);
+  });
+
+  // Write your code to create todo list elements with completed and delete buttons here, all todos should display inside the "todo-list" element.
+}
+ function elementsOfList(theToDos){
+  let span = document.createElement("span");
+  span.className="badge bg-primary rounded-pill"
+  let CompletedButton= document.createElement("i");
+  CompletedButton.className = "fa fa-check"
+  CompletedButton.onclick = function(){
+    todos.forEach( (getToDos) => {
+      if(getToDos.task === theToDos.task){
+        getToDos.completed = !getToDos.com
+      }
+      populateTodoList(todos);
+    });
+  }
+ }
+// These are the same todos that currently display in the HTML
+// You will want to remove the ones in the current HTML after you have created them using JavaScript
+// let todos = [
+//   { task: "Wash the dishes", completed: false },
+//   { task: "Do the shopping", completed: false },
+// ];
 
 populateTodoList(todos);
 
